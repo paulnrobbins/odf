@@ -64,7 +64,7 @@ export function Hero() {
             cream) so it visibly stands out from the page's cream theme; 72%
             opacity keeps the 3D scene partially visible through it. */}
         <div
-          className="relative rounded-[2rem] px-6 py-10 sm:px-12 sm:py-14 lg:px-16 lg:py-16 backdrop-blur-xl"
+          className="relative rounded-[2rem] px-6 py-10 sm:px-12 sm:py-14 lg:px-16 lg:py-16 backdrop-blur-none"
           style={{
             background: 'rgba(255, 255, 255, 0.33)',
             boxShadow:
