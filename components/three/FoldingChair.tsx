@@ -31,7 +31,7 @@ export function FoldingChair({
   color = '#7a2e2e',
 }: FoldingChairProps) {
   // Slight per-chair material variation for tactile feel
-  const roughness = useMemo(() => 0.82 + Math.random() * 0.08, []);
+  const roughness = useMemo(() => 0.62 + Math.random() * 0.10, []);
 
   return (
     <group position={position} rotation={rotation}>
@@ -50,21 +50,21 @@ export function FoldingChair({
       {/* Front legs (short, just up to seat) */}
       <mesh castShadow receiveShadow position={[-0.18, 0.22, 0.18]}>
         <cylinderGeometry args={[0.012, 0.012, 0.44, 8]} />
-        <meshStandardMaterial color={LEG_COLOR} roughness={0.7} metalness={0.45} />
+        <meshStandardMaterial color={LEG_COLOR} roughness={0.55} metalness={0.55} />
       </mesh>
       <mesh castShadow receiveShadow position={[0.18, 0.22, 0.18]}>
         <cylinderGeometry args={[0.012, 0.012, 0.44, 8]} />
-        <meshStandardMaterial color={LEG_COLOR} roughness={0.7} metalness={0.45} />
+        <meshStandardMaterial color={LEG_COLOR} roughness={0.55} metalness={0.55} />
       </mesh>
 
       {/* Rear legs (extend up to support the backrest) */}
       <mesh castShadow receiveShadow position={[-0.18, 0.42, -0.16]}>
         <cylinderGeometry args={[0.012, 0.012, 0.84, 8]} />
-        <meshStandardMaterial color={LEG_COLOR} roughness={0.7} metalness={0.45} />
+        <meshStandardMaterial color={LEG_COLOR} roughness={0.55} metalness={0.55} />
       </mesh>
       <mesh castShadow receiveShadow position={[0.18, 0.42, -0.16]}>
         <cylinderGeometry args={[0.012, 0.012, 0.84, 8]} />
-        <meshStandardMaterial color={LEG_COLOR} roughness={0.7} metalness={0.45} />
+        <meshStandardMaterial color={LEG_COLOR} roughness={0.55} metalness={0.55} />
       </mesh>
     </group>
   );

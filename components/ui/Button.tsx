@@ -24,13 +24,13 @@ const variants: Record<ButtonVariant, string> = {
   primary:
     'bg-[var(--color-lamplight)] text-[var(--color-walnut-deep)] ' +
     'hover:bg-[var(--color-lamplight-warm)] hover:-translate-y-px ' +
-    'shadow-[0_0_0_0_rgba(217,163,104,0)] hover:shadow-[0_8px_32px_-12px_rgba(217,163,104,0.6)]',
+    'shadow-[0_0_0_0_rgba(217,163,104,0)] hover:shadow-[0_8px_32px_-12px_rgba(110,74,35,0.45)]',
   secondary:
-    'border border-[var(--color-bone-soft)]/30 text-[var(--color-bone)] ' +
-    'hover:border-[var(--color-lamplight)]/60 hover:text-[var(--color-lamplight-warm)] ' +
+    'border border-[var(--color-walnut)]/30 text-[var(--color-walnut)] ' +
+    'hover:border-[var(--color-lamplight-deep)]/70 hover:text-[var(--color-lamplight-deep)] ' +
     'hover:-translate-y-px',
   ghost:
-    'text-[var(--color-bone-soft)] hover:text-[var(--color-lamplight)] ' +
+    'text-[var(--color-walnut-mid)] hover:text-[var(--color-lamplight-deep)] ' +
     'underline-offset-4 hover:underline',
 };
 

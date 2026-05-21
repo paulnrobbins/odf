@@ -1,19 +1,12 @@
 /**
- * UpperRoomFallback
- * ─────────────────
- * SSR-rendered base layer. Always renders (no 'use client'), placed behind the
- * R3F Canvas. Three reasons it exists:
+ * UpperRoomFallback — Sunday Morning Light
+ * ────────────────────────────────────────
+ * SSR-rendered base layer behind the R3F Canvas. Always renders (no
+ * 'use client') so first paint shows something real even without JS.
  *
- *   1. SSR: The Canvas is dynamic-imported with ssr:false, meaning the page
- *      would render empty server-side. Loading this fallback instead gives
- *      first paint something real to show.
- *   2. Reduced motion: When users prefer reduced motion, the Canvas never
- *      mounts. This photo stays as the permanent backdrop.
- *   3. Resilience: If JS fails or the Canvas crashes, the page still looks
- *      like a finished site.
- *
- * The photo is the real ODF service shot — same scene the 3D mockup is
- * inspired by. With the warm-tone overlay it sits cleanly under the typography.
+ * Light-theme treatment: photo at near-normal brightness, gentle cream wash
+ * so the upper viewport (where the hero text lands) reads cleanly without
+ * losing the photo entirely.
  */
 
 import Image from 'next/image';
@@ -26,7 +19,8 @@ export function UpperRoomFallback() {
       style={{ zIndex: 1 }}
       aria-hidden
     >
-      {/* The real hero photo */}
+      {/* The real hero photo, pushed bright and desaturated so it reads as
+          a light-warm backdrop rather than a dim interior */}
       <Image
         src={photos.hero}
         alt=""
@@ -34,26 +28,25 @@ export function UpperRoomFallback() {
         priority
         sizes="100vw"
         className="object-cover object-center"
-        style={{
-          filter: 'brightness(0.55) saturate(0.85) contrast(1.05)',
-        }}
+        style={{ filter: 'brightness(1.25) saturate(0.75) contrast(0.92)' }}
       />
 
-      {/* Warm walnut gradient overlay — unifies the photo with the palette */}
+      {/* Heavy cream wash — covers most of the photo's natural darkness;
+          photo reads as a subtle warm texture rather than a literal scene */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'linear-gradient(180deg, rgba(26,20,16,0.45) 0%, rgba(26,20,16,0.75) 60%, rgba(26,20,16,0.92) 100%)',
+            'linear-gradient(180deg, rgba(248,243,232,0.85) 0%, rgba(248,243,232,0.70) 35%, rgba(248,243,232,0.55) 65%, rgba(248,243,232,0.82) 100%)',
         }}
       />
 
-      {/* Amber edge vignette — pulls focus toward center */}
+      {/* Subtle warm corner glow — same as the OG image, ties the page together */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse at center, transparent 35%, rgba(26,20,16,0.45) 90%)',
+            'radial-gradient(ellipse at 85% 12%, rgba(217,163,104,0.10) 0%, transparent 60%)',
         }}
       />
     </div>

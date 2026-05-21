@@ -27,11 +27,11 @@ export default function NotFound() {
         <div className="container-editorial text-center">
           <p className="eyebrow mb-6">404 · Page not found</p>
 
-          <h1 className="font-display text-display-lg text-balance text-[var(--color-bone)]">
+          <h1 className="font-display text-display-lg text-balance text-[var(--color-walnut)]">
             We saved you a seat.
           </h1>
 
-          <p className="mt-8 text-body-lg text-[var(--color-bone-soft)] max-w-readable mx-auto text-pretty">
+          <p className="mt-8 text-body-lg text-[var(--color-walnut-mid)] max-w-readable mx-auto text-pretty">
             This page isn’t here right now — either we moved it or it hasn’t been built yet. Either
             way, the invitation still stands. {service.dayTime}, {contact.address.city}, Tennessee.
           </p>
@@ -45,11 +45,11 @@ export default function NotFound() {
             </Button>
           </div>
 
-          <p className="mt-12 text-body-sm text-[var(--color-bone-soft)]/55">
+          <p className="mt-12 text-body-sm text-[var(--color-walnut-mid)]/65">
             If you got here from a link on our site, would you let us know?{' '}
             <a
               href={routes.callPrimary}
-              className="underline underline-offset-4 hover:text-[var(--color-lamplight)] transition-colors"
+              className="underline underline-offset-4 hover:text-[var(--color-lamplight-deep)] transition-colors"
             >
               {contact.phones[0].display}
             </a>

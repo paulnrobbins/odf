@@ -56,7 +56,7 @@ export const meta = {
   description:
     'Open Door Fellowship in Spring City, TN — a recovery-focused, no-barrier church where Jesus meets people right where they are. Sundays 10:30 a.m.',
   canonical: 'https://www.odf.church',
-  themeColor: '#1a1410',
+  themeColor: '#f8f3e8',
   ogImage: '/og-image.png',
 } as const;
 

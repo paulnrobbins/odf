@@ -65,13 +65,13 @@ export function Hero() {
         </p>
         <h1
           ref={headlineRef}
-          className="font-display text-display-xl text-balance text-[var(--color-bone)]"
+          className="font-display text-display-xl text-balance text-[var(--color-walnut)]"
         >
           {hero.headline}
         </h1>
         <p
           ref={subheadRef}
-          className="mt-6 text-body-lg text-[var(--color-bone-soft)]"
+          className="mt-6 text-body-lg text-[var(--color-walnut-mid)]"
         >
           {hero.subhead}
         </p>
@@ -82,14 +82,14 @@ export function Hero() {
         ref={cueRef}
         className="
           absolute bottom-8 left-1/2 -translate-x-1/2
-          flex flex-col items-center gap-2 text-[var(--color-bone-soft)]/60
+          flex flex-col items-center gap-2 text-[var(--color-walnut-mid)]/70
           pointer-events-none
         "
         style={{ zIndex: 10 }}
         aria-hidden
       >
         <span className="text-micro">SCROLL</span>
-        <span className="block h-8 w-px bg-[var(--color-bone-soft)]/40 animate-drift" />
+        <span className="block h-8 w-px bg-[var(--color-walnut)]/40 animate-drift" />
       </div>
     </section>
   );

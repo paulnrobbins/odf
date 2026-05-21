@@ -51,10 +51,18 @@ export function UpperRoomCanvas() {
           antialias: true,
           alpha: false,
           powerPreference: 'high-performance',
-          toneMapping: THREE.ACESFilmicToneMapping,
-          toneMappingExposure: 1.05,
+          toneMapping: THREE.LinearToneMapping,
+          toneMappingExposure: 1.4,
         }}
-        style={{ background: '#1a1410' }}
+        onCreated={({ gl }) => {
+          // Opt back into legacy light units — Three.js r155+ defaults to
+          // physical units (candela), which makes intuitive intensities like
+          // 1.0 absurdly dim. Legacy units give the bright daylight we want
+          // without needing intensities of 30+ everywhere.
+          // @ts-expect-error — useLegacyLights still exists in r169 for back-compat
+          gl.useLegacyLights = true;
+        }}
+        style={{ background: '#f5eedd' }}
       >
         <Suspense fallback={null}>
           <UpperRoomScene

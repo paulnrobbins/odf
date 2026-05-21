@@ -13,13 +13,13 @@ import { Connection } from '@/components/sections/Connection';
 /**
  * Home page assembly
  * ──────────────────
- * Section order matches the scroll score:
- *   Hero → TwoThings → Ministries → ServiceInfo → Leadership → Beliefs →
+ * Section order (the scroll score):
+ *   Hero → TwoThings → ServiceInfo → Leadership → Ministries → Beliefs →
  *   AtTheCross → Connection.
  *
  * The fixed 3D background (UpperRoomFallback photo + BackgroundCanvas R3F)
  * sits behind everything; the camera path through the 3D scene auto-scales
- * to total scroll length, so adding sections doesn't break the cinematic.
+ * to total scroll length, so reordering sections doesn't break the cinematic.
  */
 export default function HomePage() {
   return (
@@ -32,9 +32,9 @@ export default function HomePage() {
       <main>
         <Hero />
         <TwoThings />
-        <Ministries />
         <ServiceInfo />
         <Leadership />
+        <Ministries />
         <Beliefs />
         <AtTheCross />
         <Connection />

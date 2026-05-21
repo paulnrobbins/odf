@@ -87,10 +87,10 @@ export function Ministries() {
     >
       <div className="container-wide">
         <p className="eyebrow mb-6 reveal">{ministries.eyebrow}</p>
-        <h2 className="font-display text-display-lg text-balance text-[var(--color-bone)] reveal">
+        <h2 className="font-display text-display-lg text-balance text-[var(--color-walnut)] reveal">
           {ministries.headline}
         </h2>
-        <p className="mt-6 text-body-lg text-[var(--color-bone-soft)] max-w-readable text-pretty reveal">
+        <p className="mt-6 text-body-lg text-[var(--color-walnut-mid)] max-w-readable text-pretty reveal">
           {ministries.intro}
         </p>
 
@@ -103,27 +103,27 @@ export function Ministries() {
               }}
               className="
                 group reveal
-                border border-[var(--color-bone-soft)]/15
+                border border-[var(--color-walnut)]/15
                 rounded-[var(--radius-card)]
                 p-8
-                bg-[var(--color-walnut-deep)]/40 backdrop-blur-sm
+                bg-[var(--color-bone-bright)]/75 backdrop-blur-sm
                 transition-[border-color,background-color,box-shadow]
                 duration-[var(--dur-base)]
                 ease-[var(--ease-cinema)]
-                hover:border-[var(--color-lamplight)]/45
-                hover:bg-[var(--color-walnut-deep)]/55
-                hover:shadow-[0_30px_60px_-30px_rgba(217,163,104,0.25)]
+                hover:border-[var(--color-lamplight-deep)]/60
+                hover:bg-[var(--color-bone-bright)]/85
+                hover:shadow-[0_20px_40px_-20px_rgba(110,74,35,0.20)]
               "
               style={{ willChange: 'transform' }}
             >
               <p className="eyebrow mb-3">{m.tag}</p>
-              <h3 className="font-display text-[1.65rem] leading-tight text-[var(--color-bone)]">
+              <h3 className="font-display text-[1.65rem] leading-tight text-[var(--color-walnut)]">
                 {m.name}
               </h3>
-              <p className="text-body-sm text-[var(--color-bone-soft)]/65 mt-1">
+              <p className="text-body-sm text-[var(--color-walnut-mid)]/75 mt-1">
                 {m.location}
               </p>
-              <p className="mt-6 text-body text-[var(--color-bone-soft)] text-pretty">
+              <p className="mt-6 text-body text-[var(--color-walnut-mid)] text-pretty">
                 {m.body}
               </p>
               <div className="mt-8">

@@ -32,11 +32,11 @@ interface UpperRoomSceneProps {
 // Chair palette — heavily weighted to burgundy (matches the real ODF photo)
 // with sage / navy / rust as occasional accents.
 const CHAIR_PALETTE = [
-  '#7a2e2e', '#7a2e2e', '#7a2e2e', '#7a2e2e', // burgundy (dominant)
-  '#5c3a2f', // dark brown
-  '#3a4554', // navy
-  '#4a5240', // sage
-  '#8a4a3c', // rust
+  '#b34646', '#b34646', '#b34646', '#b34646', // burgundy (dominant) — lifted for cream-bg readability
+  '#8a6a52', // brown
+  '#5e7088', // navy
+  '#7a8c6f', // sage
+  '#b87662', // rust
 ];
 
 // Tiny deterministic hash so chair placement is stable across renders.
@@ -186,35 +186,35 @@ export function UpperRoomScene({ mobile = false, motesEnabled = true }: UpperRoo
       {/* Floor — wood plank */}
       <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, -3]}>
         <planeGeometry args={[16, 28]} />
-        <meshStandardMaterial color="#3a2818" roughness={0.95} />
+        <meshStandardMaterial color="#d4b486" roughness={0.65} />
       </mesh>
 
       {/* Back wall (behind the camera most of the time, but visible at high progress) */}
       <mesh position={[0, 1.8, 4.6]} receiveShadow>
         <planeGeometry args={[16, 4.5]} />
-        <meshStandardMaterial color="#241a13" roughness={0.95} />
+        <meshStandardMaterial color="#f0e8d6" roughness={0.65} />
       </mesh>
 
       {/* Side walls */}
       <mesh position={[-5.4, 1.8, -3]} rotation={[0, Math.PI / 2, 0]} receiveShadow>
         <planeGeometry args={[18, 4.5]} />
-        <meshStandardMaterial color="#241a13" roughness={0.95} />
+        <meshStandardMaterial color="#f0e8d6" roughness={0.65} />
       </mesh>
       <mesh position={[5.4, 1.8, -3]} rotation={[0, -Math.PI / 2, 0]} receiveShadow>
         <planeGeometry args={[18, 4.5]} />
-        <meshStandardMaterial color="#241a13" roughness={0.95} />
+        <meshStandardMaterial color="#f0e8d6" roughness={0.65} />
       </mesh>
 
       {/* Front wall (behind the stage) */}
       <mesh position={[0, 1.8, -9]} receiveShadow>
         <planeGeometry args={[16, 4.5]} />
-        <meshStandardMaterial color="#1f1610" roughness={0.95} />
+        <meshStandardMaterial color="#ebe1ca" roughness={0.65} />
       </mesh>
 
       {/* Ceiling suggestion (dark) */}
       <mesh position={[0, 3.8, -3]} rotation={[Math.PI / 2, 0, 0]}>
         <planeGeometry args={[16, 22]} />
-        <meshStandardMaterial color="#15100c" roughness={1} />
+        <meshStandardMaterial color="#f8f3e8" roughness={0.85} />
       </mesh>
 
       {/* ─ Chairs ─ */}
@@ -233,9 +233,6 @@ export function UpperRoomScene({ mobile = false, motesEnabled = true }: UpperRoo
       {/* ─ Ambient dust in the window shaft ─ */}
       <DustMotes count={mobile ? 40 : 80} enabled={motesEnabled} />
 
-      {/* ─ Distance fog — deepens the back of the room and saves us from
-            having to fully build out the front wall in detail ─ */}
-      <fog attach="fog" args={['#1a1410', 6, 18]} />
     </>
   );
 }

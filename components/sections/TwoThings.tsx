@@ -27,7 +27,7 @@ export function TwoThings() {
     >
       <div className="container-editorial">
         <p className="eyebrow mb-6 reveal">{twoThings.eyebrow}</p>
-        <h2 className="font-display text-display-lg text-balance text-[var(--color-bone)] reveal">
+        <h2 className="font-display text-display-lg text-balance text-[var(--color-walnut)] reveal">
           {twoThings.headline}
         </h2>
 
@@ -43,10 +43,10 @@ export function TwoThings() {
               >
                 {/* Copy block */}
                 <div className={photoOnRight ? 'md:order-1' : 'md:order-2'}>
-                  <h3 className="font-display text-display-md text-[var(--color-bone)] text-balance reveal">
+                  <h3 className="font-display text-display-md text-[var(--color-walnut)] text-balance reveal">
                     {item.title}
                   </h3>
-                  <p className="mt-6 text-body-lg text-[var(--color-bone-soft)] max-w-readable text-pretty reveal">
+                  <p className="mt-6 text-body-lg text-[var(--color-walnut-mid)] max-w-readable text-pretty reveal">
                     {item.body}
                   </p>
                 </div>
@@ -64,7 +64,7 @@ export function TwoThings() {
                       transform: photoOnRight
                         ? 'perspective(1600px) rotateY(-5deg) rotateX(1deg)'
                         : 'perspective(1600px) rotateY(5deg) rotateX(1deg)',
-                      boxShadow: '0 40px 80px -30px rgba(0, 0, 0, 0.7)',
+                      boxShadow: '0 25px 50px -20px rgba(58, 40, 24, 0.18)',
                     }}
                   >
                     <Image
@@ -74,7 +74,7 @@ export function TwoThings() {
                       sizes="(min-width: 768px) 50vw, 100vw"
                       className="object-cover"
                       style={{
-                        filter: 'brightness(0.85) saturate(0.88) contrast(1.05)',
+                        filter: 'brightness(1.02) saturate(0.96) contrast(1.02)',
                       }}
                     />
                     {/* Warm amber overlay */}
@@ -92,7 +92,7 @@ export function TwoThings() {
                       className="absolute inset-0 pointer-events-none"
                       style={{
                         background:
-                          'radial-gradient(ellipse at center, transparent 60%, rgba(26,20,16,0.55) 100%)',
+                          'radial-gradient(ellipse at center, transparent 60%, rgba(248,243,232,0.3) 100%)',
                       }}
                     />
                   </div>

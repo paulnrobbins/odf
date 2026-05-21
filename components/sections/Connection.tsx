@@ -28,8 +28,8 @@ export function Connection() {
     >
       <div className="container-wide">
         {/* Greeting + primary CTAs */}
-        <div className="border-t border-[var(--color-bone-soft)]/15 pt-16">
-          <p className="font-display text-display-sm text-balance max-w-3xl text-[var(--color-bone)] reveal">
+        <div className="border-t border-[var(--color-walnut)]/15 pt-16">
+          <p className="font-display text-display-sm text-balance max-w-3xl text-[var(--color-walnut)] reveal">
             {footer.greeting}
           </p>
           <div className="mt-8 flex flex-wrap gap-4 reveal">
@@ -51,12 +51,12 @@ export function Connection() {
         <div className="mt-20 grid gap-12 md:grid-cols-[2fr_1fr_1fr_1fr]">
           <div className="reveal">
             <p className="eyebrow mb-3">Open Door Fellowship</p>
-            <address className="not-italic font-display text-[1.125rem] text-[var(--color-bone)] leading-snug">
+            <address className="not-italic font-display text-[1.125rem] text-[var(--color-walnut)] leading-snug">
               {contact.address.street}
               <br />
               {contact.address.city}, {contact.address.region} {contact.address.postal}
             </address>
-            <p className="mt-4 text-body-sm text-[var(--color-bone-soft)]/80">
+            <p className="mt-4 text-body-sm text-[var(--color-walnut-mid)]/85">
               {service.dayTime}
             </p>
             <ul className="mt-4 space-y-1">
@@ -64,7 +64,7 @@ export function Connection() {
                 <li key={p.tel}>
                   <a
                     href={`tel:${p.tel}`}
-                    className="text-body-sm text-[var(--color-bone-soft)]/85 hover:text-[var(--color-lamplight)] transition-colors"
+                    className="text-body-sm text-[var(--color-walnut-mid)]/85 hover:text-[var(--color-lamplight-deep)] transition-colors"
                   >
                     {p.display}
                   </a>
@@ -84,8 +84,8 @@ export function Connection() {
                       target={link.external ? '_blank' : undefined}
                       rel={link.external ? 'noopener noreferrer' : undefined}
                       className="
-                        text-body-sm text-[var(--color-bone-soft)]/85
-                        hover:text-[var(--color-lamplight)]
+                        text-body-sm text-[var(--color-walnut-mid)]/85
+                        hover:text-[var(--color-lamplight-deep)]
                         transition-colors duration-[var(--dur-base)]
                       "
                     >
@@ -99,8 +99,8 @@ export function Connection() {
         </div>
 
         {/* Legal */}
-        <div className="mt-20 pt-8 border-t border-[var(--color-bone-soft)]/10">
-          <p className="text-micro text-[var(--color-bone-soft)]/40">
+        <div className="mt-20 pt-8 border-t border-[var(--color-walnut)]/10">
+          <p className="text-micro text-[var(--color-walnut-mid)]/50">
             {footer.legal}
           </p>
         </div>

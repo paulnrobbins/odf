@@ -18,10 +18,10 @@ export function PillNav({ className }: { className?: string }) {
       href={routes.visit}
       className={cn(
         'group inline-flex items-center gap-2.5 rounded-full',
-        'border border-[var(--color-bone-soft)]/20 bg-[var(--color-walnut-mid)]/70 backdrop-blur-md',
+        'border border-[var(--color-walnut)]/20/20 bg-[var(--color-bone-bright)]/70 backdrop-blur-md',
         'px-4 py-2 text-[0.8125rem] font-medium tracking-tight',
-        'text-[var(--color-bone)] transition-all duration-[var(--dur-base)] ease-[var(--ease-cinema)]',
-        'hover:border-[var(--color-lamplight)]/50 hover:text-[var(--color-lamplight-warm)]',
+        'text-[var(--color-walnut)] transition-all duration-[var(--dur-base)] ease-[var(--ease-cinema)]',
+        'hover:border-[var(--color-lamplight)]/50 hover:text-[var(--color-lamplight-deep)]',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-lamplight)]',
         className,
       )}
@@ -32,7 +32,7 @@ export function PillNav({ className }: { className?: string }) {
         className="block h-1.5 w-1.5 rounded-full bg-[var(--color-lamplight)] animate-flicker"
       />
       <span className="opacity-90">{service.shortLabel}</span>
-      <span className="text-[var(--color-bone-soft)]/40">·</span>
+      <span className="text-[var(--color-walnut-mid)]/50">·</span>
       <span className="opacity-90 group-hover:opacity-100">Plan a Visit</span>
       <svg
         aria-hidden

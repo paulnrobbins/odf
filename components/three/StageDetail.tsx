@@ -45,16 +45,16 @@ function Guitar({ position }: { position: [number, number, number] }) {
       {/* Stand — two crossed thin bars forming an A-shape */}
       <mesh castShadow position={[0, 0.30, 0]} rotation={[0, 0, 0.18]}>
         <cylinderGeometry args={[0.01, 0.01, 0.80, 8]} />
-        <meshStandardMaterial color={METAL} roughness={0.45} metalness={0.7} />
+        <meshStandardMaterial color={METAL} roughness={0.3} metalness={0.75} />
       </mesh>
       <mesh castShadow position={[0, 0.30, 0]} rotation={[0, 0, -0.18]}>
         <cylinderGeometry args={[0.01, 0.01, 0.80, 8]} />
-        <meshStandardMaterial color={METAL} roughness={0.45} metalness={0.7} />
+        <meshStandardMaterial color={METAL} roughness={0.3} metalness={0.75} />
       </mesh>
       {/* Cross-brace */}
       <mesh castShadow position={[0, 0.32, 0]} rotation={[0, 0, Math.PI / 2]}>
         <cylinderGeometry args={[0.008, 0.008, 0.16, 8]} />
-        <meshStandardMaterial color={METAL} roughness={0.45} metalness={0.7} />
+        <meshStandardMaterial color={METAL} roughness={0.3} metalness={0.75} />
       </mesh>
 
       {/* Guitar body — flattened sphere, dark wood */}
@@ -154,12 +154,12 @@ function MusicStandWithBible({ position }: { position: [number, number, number] 
       {/* Tripod base */}
       <mesh castShadow position={[0, 0.04, 0]}>
         <cylinderGeometry args={[0.14, 0.14, 0.02, 12]} />
-        <meshStandardMaterial color={METAL} roughness={0.45} metalness={0.7} />
+        <meshStandardMaterial color={METAL} roughness={0.3} metalness={0.75} />
       </mesh>
       {/* Vertical pole */}
       <mesh castShadow position={[0, 0.55, 0]}>
         <cylinderGeometry args={[0.012, 0.012, 1.0, 10]} />
-        <meshStandardMaterial color={METAL} roughness={0.45} metalness={0.7} />
+        <meshStandardMaterial color={METAL} roughness={0.3} metalness={0.75} />
       </mesh>
       {/* Tilted reading plate */}
       <mesh castShadow receiveShadow position={[0, 1.10, -0.06]} rotation={[-0.55, 0, 0]}>

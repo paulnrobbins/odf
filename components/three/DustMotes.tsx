@@ -82,9 +82,9 @@ export function DustMotes({ count = 80, enabled = true }: DustMotesProps) {
       </bufferGeometry>
       <pointsMaterial
         size={0.028}
-        color="#e8b87a"
+        color="#8b5e25"
         transparent
-        opacity={0.55}
+        opacity={0.32}
         sizeAttenuation
         depthWrite={false}
       />

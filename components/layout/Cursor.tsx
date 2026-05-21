@@ -66,8 +66,8 @@ export function Cursor() {
       const scale = hovering ? 1.6 : 1;
       ring.style.transform =
         `translate3d(${ringX - RING_SIZE / 2}px, ${ringY - RING_SIZE / 2}px, 0) scale(${scale})`;
-      ring.style.backgroundColor = hovering ? 'rgba(217,163,104,0.18)' : 'transparent';
-      ring.style.borderColor = hovering ? 'rgba(232,184,122,1)' : 'rgba(217,163,104,0.85)';
+      ring.style.backgroundColor = hovering ? 'rgba(110, 74, 35, 0.14)' : 'transparent';
+      ring.style.borderColor = hovering ? 'rgba(58, 40, 32, 0.95)' : 'rgba(58, 40, 32, 0.75)';
 
       rafId = requestAnimationFrame(tick);
     };
@@ -95,7 +95,7 @@ export function Cursor() {
         width: RING_SIZE,
         height: RING_SIZE,
         borderRadius: '50%',
-        border: '1.5px solid rgba(217, 163, 104, 0.85)',
+        border: '1.5px solid rgba(58, 40, 32, 0.75)',
         backgroundColor: 'transparent',
         opacity: 0,
         willChange: 'transform',

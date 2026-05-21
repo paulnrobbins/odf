@@ -1,91 +1,83 @@
-@import '../styles/tokens.css';
-
+@import url('../styles/tokens.css');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* ─────────────────────────────────────────────────────────────
-   Base layer — typography, body, selection
+   Base — type setup, surface tones, motion defaults
    ───────────────────────────────────────────────────────────── */
-
 @layer base {
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
+  html { -webkit-text-size-adjust: 100%; }
 
-  html,
   body {
-    margin: 0;
-    padding: 0;
     background-color: var(--surface-base);
     color: var(--text-primary);
-  }
-
-  html {
-    /* Lenis handles scroll; native smooth is off by default */
-    scroll-behavior: auto;
-    /* Color the rubber-band area to match (iOS Safari) */
-    background-color: var(--surface-base);
-  }
-
-  body {
     font-family: var(--font-instrument-sans), system-ui, -apple-system, sans-serif;
-    font-weight: var(--weight-regular);
-    font-size: 1.0625rem;
-    line-height: 1.65;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'ss01' 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    /* Prevent horizontal scroll from 3D canvas overflows */
     overflow-x: hidden;
   }
 
-  /* Display type opts into Fraunces with optical sizing */
-  h1, h2, h3,
-  .font-display {
-    font-family: var(--font-fraunces), Georgia, 'Times New Roman', serif;
-    font-weight: var(--weight-regular);
-    font-variation-settings: 'opsz' 96, 'SOFT' 50;
-    letter-spacing: -0.02em;
-  }
-
-  /* Italic accents use Instrument Serif italic */
-  em,
-  .font-italic {
-    font-family: var(--font-instrument-serif), Georgia, serif;
-    font-style: italic;
-    letter-spacing: -0.01em;
-  }
-
   ::selection {
-    background-color: var(--color-lamplight);
-    color: var(--color-walnut-deep);
+    background-color: rgba(217, 163, 104, 0.35);
+    color: var(--color-walnut);
   }
 
-  /* Focus rings — visible but on-brand */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-fraunces), Georgia, serif;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'ss01' 1;
+    font-variation-settings: 'opsz' 96, 'SOFT' 50;
+    color: var(--text-primary);
+    letter-spacing: -0.015em;
+    line-height: 1.05;
+    text-wrap: balance;
+  }
+
+  p, li, dd { color: var(--text-secondary); }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* Focus ring — accessible for keyboard nav, never visible on mouse */
   :focus-visible {
-    outline: 2px solid var(--color-lamplight);
+    outline: 2px solid var(--color-lamplight-deep);
     outline-offset: 3px;
-    border-radius: 2px;
+    border-radius: 3px;
   }
 }
 
 /* ─────────────────────────────────────────────────────────────
-   Component utilities
+   Components — opinionated patterns reused across sections
    ───────────────────────────────────────────────────────────── */
-
 @layer components {
-  /* Full-bleed grain overlay — sparingly used (Pillar 5: tactile detail) */
-  .grain-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 3;
-    pointer-events: none;
-    opacity: var(--grain-opacity);
-    mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  /* Container — readable measure for prose */
+  .container-editorial {
+    max-width: 78ch;
+    margin-inline: auto;
+    padding-inline: var(--gutter, 1.5rem);
+  }
+  /* Container — wider for grids, galleries, multi-column layouts */
+  .container-wide {
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: var(--gutter, 1.5rem);
+  }
+
+  /* Eyebrow — small spaced-caps label, sits above headlines */
+  .eyebrow {
+    font-family: var(--font-instrument-sans), system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-accent);
+  }
+
+  /* Italic accent — Instrument Serif italic, for pull-quotes and emphasis */
+  .font-italic {
+    font-family: var(--font-instrument-serif), Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
   }
 
   /* Section container — generous macro whitespace per Pillar 4.
@@ -99,9 +91,8 @@
     padding-inline: var(--gutter, 1.5rem);
   }
 
-  /* Section veil — subtle walnut wash behind content so type reads cleanly
-     over the 3D scene. The 3D still shows through at the edges (top/bottom
-     fade) which preserves the immersive feel. */
+  /* Section veil — subtle cream wash behind content so type reads cleanly
+     over the 3D scene. The 3D still shows through at top + bottom edges. */
   .section-veil::before {
     content: '';
     position: absolute;
@@ -110,15 +101,15 @@
     pointer-events: none;
     background: linear-gradient(
       180deg,
-      rgba(26, 20, 16, 0.0) 0%,
-      rgba(26, 20, 16, 0.88) 14%,
-      rgba(26, 20, 16, 0.94) 50%,
-      rgba(26, 20, 16, 0.88) 86%,
-      rgba(26, 20, 16, 0.0) 100%
+      rgba(248, 243, 232, 0.0) 0%,
+      rgba(248, 243, 232, 0.92) 14%,
+      rgba(248, 243, 232, 0.97) 50%,
+      rgba(248, 243, 232, 0.92) 86%,
+      rgba(248, 243, 232, 0.0) 100%
     );
   }
 
-  /* Deeper veil for the conversion + footer beats (more committed coverage) */
+  /* Deeper veil for the conversion + footer beats (almost opaque) */
   .section-veil-strong::before {
     content: '';
     position: absolute;
@@ -127,70 +118,43 @@
     pointer-events: none;
     background: linear-gradient(
       180deg,
-      rgba(26, 20, 16, 0.85) 0%,
-      rgba(26, 20, 16, 0.96) 50%,
-      rgba(26, 20, 16, 1.00) 100%
+      rgba(248, 243, 232, 0.90) 0%,
+      rgba(248, 243, 232, 0.98) 50%,
+      rgba(248, 243, 232, 1.00) 100%
     );
   }
 
-  /* Editorial inner container */
-  .container-editorial {
-    margin-inline: auto;
-    max-width: 64rem;
-  }
-
-  /* Wide container for stage-approach + footer */
-  .container-wide {
-    margin-inline: auto;
-    max-width: 88rem;
-  }
-
-  /* Eyebrow label — small spaced caps used above section heads */
-  .eyebrow {
-    font-family: var(--font-instrument-sans), sans-serif;
-    font-size: 0.75rem;
-    font-weight: var(--weight-medium);
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: var(--text-accent);
+  /* Full-bleed grain overlay — multiply blend on cream for subtle warmth */
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    opacity: var(--grain-opacity);
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   }
 }
 
 /* ─────────────────────────────────────────────────────────────
-   Utility layer — small custom helpers
+   Type scale — utilities for the display + body system
    ───────────────────────────────────────────────────────────── */
-
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .text-display-xl  { font-size: clamp(3rem, 8.5vw, 7.5rem); line-height: 0.95; }
+  .text-display-lg  { font-size: clamp(2.5rem, 6vw, 5.25rem); line-height: 1.0; }
+  .text-display-md  { font-size: clamp(2rem, 4vw, 3.75rem); line-height: 1.05; }
+  .text-display-sm  { font-size: clamp(1.5rem, 2.6vw, 2.5rem); line-height: 1.1; }
+  .text-body-lg     { font-size: clamp(1.0625rem, 1.05vw, 1.25rem); line-height: 1.65; }
+  .text-body        { font-size: 1rem; line-height: 1.65; }
+  .text-body-sm     { font-size: 0.9375rem; line-height: 1.5; }
+  .text-micro       { font-size: 0.75rem; line-height: 1.4; letter-spacing: 0.16em; text-transform: uppercase; }
+
+  .max-w-readable { max-width: 68ch; }
+
+  /* Drift animation — used by Hero scroll cue */
+  @keyframes drift {
+    0%, 100% { transform: translateY(0); opacity: 0.4; }
+    50%      { transform: translateY(8px); opacity: 0.8; }
   }
-
-  .text-pretty {
-    text-wrap: pretty;
-  }
-}
-
-/* ─────────────────────────────────────────────────────────────
-   Lenis smooth-scroll required class hooks
-   ───────────────────────────────────────────────────────────── */
-
-html.lenis,
-html.lenis body {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: clip;
-}
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
+  .animate-drift { animation: drift 2.4s ease-in-out infinite; }
 }

@@ -27,10 +27,10 @@ export function Beliefs() {
     >
       <div className="container-editorial">
         <p className="eyebrow mb-6 reveal">{statementOfFaith.eyebrow}</p>
-        <h2 className="font-display text-display-lg text-balance text-[var(--color-bone)] reveal">
+        <h2 className="font-display text-display-lg text-balance text-[var(--color-walnut)] reveal">
           {statementOfFaith.headline}
         </h2>
-        <p className="mt-6 text-body-lg text-[var(--color-bone-soft)] max-w-readable text-pretty reveal">
+        <p className="mt-6 text-body-lg text-[var(--color-walnut-mid)] max-w-readable text-pretty reveal">
           {statementOfFaith.intro}
         </p>
 
@@ -40,17 +40,17 @@ export function Beliefs() {
               key={item.id}
               className={
                 'reveal pt-10 pb-10' +
-                (idx > 0 ? ' border-t border-[var(--color-bone-soft)]/12' : '')
+                (idx > 0 ? ' border-t border-[var(--color-walnut)]/12' : '')
               }
             >
-              <dt className="font-display text-display-sm text-[var(--color-bone)] text-balance">
+              <dt className="font-display text-display-sm text-[var(--color-walnut)] text-balance">
                 {item.title}
               </dt>
               <dd className="mt-5">
-                <p className="text-body-lg text-[var(--color-bone-soft)] text-pretty">
+                <p className="text-body-lg text-[var(--color-walnut-mid)] text-pretty">
                   {item.body}
                 </p>
-                <p className="mt-5 text-body-sm font-italic text-[var(--color-lamplight)]/90 tracking-tight">
+                <p className="mt-5 text-body-sm font-italic text-[var(--color-lamplight-deep)] tracking-tight">
                   {item.scripture}
                 </p>
               </dd>

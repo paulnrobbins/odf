@@ -20,25 +20,25 @@ export function Stage({ z = -7 }: StageProps) {
       {/* Platform — short, low, modest */}
       <mesh receiveShadow castShadow position={[0, 0.10, 0]}>
         <boxGeometry args={[5.4, 0.20, 2.4]} />
-        <meshStandardMaterial color="#3a2818" roughness={0.92} />
+        <meshStandardMaterial color="#7a553a" roughness={0.68} />
       </mesh>
 
       {/* Platform edge trim (slightly lighter wood) */}
       <mesh receiveShadow position={[0, 0.205, 1.2]}>
         <boxGeometry args={[5.4, 0.02, 0.04]} />
-        <meshStandardMaterial color="#52371f" roughness={0.85} />
+        <meshStandardMaterial color="#9b6c47" roughness={0.55} />
       </mesh>
 
       {/* Wooden cross — vertical beam */}
       <mesh castShadow receiveShadow position={[0, 1.45, -0.85]}>
         <boxGeometry args={[0.10, 1.55, 0.12]} />
-        <meshStandardMaterial color="#5c3a20" roughness={0.85} />
+        <meshStandardMaterial color="#5c3a20" roughness={0.6} />
       </mesh>
 
       {/* Wooden cross — horizontal beam (positioned ~⅔ up the vertical) */}
       <mesh castShadow receiveShadow position={[0, 1.78, -0.85]}>
         <boxGeometry args={[0.72, 0.09, 0.10]} />
-        <meshStandardMaterial color="#5c3a20" roughness={0.85} />
+        <meshStandardMaterial color="#5c3a20" roughness={0.6} />
       </mesh>
 
       {/* Guitar / stool+mug / music stand+Bible — the things that make it

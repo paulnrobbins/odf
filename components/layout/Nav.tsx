@@ -21,7 +21,7 @@ export function Nav() {
         z-[var(--z-nav)]
         flex items-center justify-between
         px-gutter py-4 sm:py-5
-        mix-blend-exclusion
+        
         pointer-events-none
       "
     >
@@ -31,9 +31,9 @@ export function Nav() {
         className="
           pointer-events-auto
           font-display text-[1.05rem] sm:text-[1.15rem] font-medium
-          tracking-tight text-[var(--color-bone)]
+          tracking-tight text-[var(--color-walnut)]
           transition-colors duration-[var(--dur-base)]
-          hover:text-[var(--color-lamplight)]
+          hover:text-[var(--color-lamplight-deep)]
         "
         aria-label="Open Door Fellowship — Home"
       >
@@ -48,9 +48,9 @@ export function Nav() {
             href={item.href}
             className="
               text-[0.8125rem] tracking-tight font-medium
-              text-[var(--color-bone)]/85
+              text-[var(--color-walnut)]/85
               transition-colors duration-[var(--dur-base)]
-              hover:text-[var(--color-lamplight)]
+              hover:text-[var(--color-lamplight-deep)]
             "
           >
             {item.label}

@@ -1,47 +1,45 @@
 /* ─────────────────────────────────────────────────────────────
    Design Tokens — Open Door Fellowship
-   The Upper Room · Warm Lived-In Cinema
-   Single source of truth. Tailwind references these via CSS vars.
+   The Upper Room · Sunday Morning Light
+   ─────────────────────────────────────
+   Light-theme system. Cream backgrounds, walnut text, warm amber accents.
+   Color palette names describe the COLOR (walnut = dark, bone = light);
+   semantic role tokens describe USAGE (surface, text, accent).
    ───────────────────────────────────────────────────────────── */
 
 :root {
-  /* ── Color: Walnut (dominant, the dark wood interior) ── */
+  /* ── Palette: Walnut (dark wood — now used for text + cross + accents) ── */
   --color-walnut:        #1a1410;
   --color-walnut-deep:   #0e0a08;
-  --color-walnut-mid:    #251c16;
+  --color-walnut-mid:    #3a2820;
+  --color-walnut-soft:   #5c4338;
 
-  /* ── Color: Lamplight (accent, the warm reading-lamp glow) ── */
-  --color-lamplight:      #d9a368;
+  /* ── Palette: Lamplight (warm amber) ── */
+  --color-lamplight:      #d9a368;  /* fills, buttons, accents */
   --color-lamplight-warm: #e8b87a;
   --color-lamplight-dim:  #a8763e;
+  --color-lamplight-deep: #6e4a23;  /* darker amber for text on light bg (AA contrast) */
 
-  /* ── Color: Bone (neutral, the parchment / paper / cream) ── */
-  --color-bone:      #f3ebde;
-  --color-bone-soft: #d9d1c2;
+  /* ── Palette: Bone (cream — now the dominant background) ── */
+  --color-bone:        #f3ebde;
+  --color-bone-soft:   #e6dccc;
+  --color-bone-warm:   #f8f3e8;     /* main page background */
+  --color-bone-bright: #fdfbf5;     /* elevated surfaces */
 
-  /* ── Color: Sage (restricted tertiary — folding-chair green, ≤5% of page) ── */
-  --color-sage: #6b7b5e;
+  /* ── Palette: Sage (restricted tertiary, ≤5% of page) ── */
+  --color-sage:      #6b7b5e;
+  --color-sage-deep: #4a5740;       /* darker variant for legibility on cream */
 
   /* ── Semantic surfaces ── */
-  --surface-base:     var(--color-walnut);
-  --surface-elevated: var(--color-walnut-mid);
-  --surface-deep:     var(--color-walnut-deep);
+  --surface-base:     var(--color-bone-warm);
+  --surface-elevated: var(--color-bone-bright);
+  --surface-deep:     var(--color-bone);
 
   /* ── Semantic text ── */
-  --text-primary:   var(--color-bone);
-  --text-secondary: var(--color-bone-soft);
-  --text-muted:     rgba(243, 235, 222, 0.55);
-  --text-accent:    var(--color-lamplight);
-
-  /* ── Type scale: face tokens fed by next/font into --font-* CSS vars ── */
-  /* (--font-fraunces, --font-instrument-sans, --font-instrument-serif
-      are injected by next/font in app/layout.tsx) */
-
-  /* ── Type weight tokens ── */
-  --weight-light:    300;
-  --weight-regular:  400;
-  --weight-medium:   500;
-  --weight-semibold: 600;
+  --text-primary:   var(--color-walnut);
+  --text-secondary: var(--color-walnut-mid);
+  --text-muted:     rgba(26, 20, 16, 0.55);
+  --text-accent:    var(--color-lamplight-deep);
 
   /* ── Motion tokens — restrained, never frenetic ── */
   --ease-cinema: cubic-bezier(0.22, 1, 0.36, 1);
@@ -63,11 +61,11 @@
   --radius-card: 6px;
 
   /* ── Effect tokens (used sparingly per Restraint principle) ── */
-  --grain-opacity: 0.08;
-  --glow-warm: 0 0 80px -20px rgba(217, 163, 104, 0.35);
+  --grain-opacity: 0.045;             /* lighter grain — too much makes cream look muddy */
+  --glow-warm: 0 0 80px -20px rgba(217, 163, 104, 0.55);
 }
 
-/* Honor user preference for reduced motion — disables ambient drift, flicker, scrub */
+/* Honor user preference for reduced motion */
 @media (prefers-reduced-motion: reduce) {
   :root {
     --dur-fast:   0ms;

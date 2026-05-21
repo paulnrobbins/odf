@@ -30,10 +30,10 @@ export function AtTheCross() {
       aria-label="We saved you a seat"
     >
       <div className="container-editorial text-center">
-        <p className="font-italic text-display-md text-[var(--color-lamplight-warm)] text-balance reveal">
+        <p className="font-italic text-display-md text-[var(--color-lamplight-deep)] text-balance reveal">
           &ldquo;{atTheCross.pullQuote}&rdquo;
         </p>
-        <p className="mt-10 text-body-lg text-[var(--color-bone-soft)] max-w-readable mx-auto text-pretty reveal">
+        <p className="mt-10 text-body-lg text-[var(--color-walnut-mid)] max-w-readable mx-auto text-pretty reveal">
           {atTheCross.body}
         </p>
         <div className="mt-12 flex flex-wrap items-center justify-center gap-4 reveal">

@@ -25,7 +25,7 @@ export function ServiceInfo() {
     >
       <div className="container-editorial">
         <p className="eyebrow mb-6 reveal">{serviceInfo.eyebrow}</p>
-        <h2 className="font-display text-display-lg text-balance text-[var(--color-bone)] reveal">
+        <h2 className="font-display text-display-lg text-balance text-[var(--color-walnut)] reveal">
           {serviceInfo.headline}
         </h2>
 
@@ -45,7 +45,7 @@ export function ServiceInfo() {
               fill
               sizes="(min-width: 1024px) 1024px, 100vw"
               className="object-cover object-center"
-              style={{ filter: 'brightness(0.92) saturate(0.92) contrast(1.05)' }}
+              style={{ filter: 'brightness(1.02) saturate(0.94) contrast(1.02)' }}
             />
             {/* Warm tint to unify with the palette */}
             <div
@@ -62,11 +62,11 @@ export function ServiceInfo() {
               className="absolute inset-x-0 bottom-0 h-1/3 pointer-events-none"
               style={{
                 background:
-                  'linear-gradient(180deg, transparent 0%, rgba(26,20,16,0.5) 100%)',
+                  'linear-gradient(180deg, transparent 0%, rgba(248,243,232,0.25) 100%)',
               }}
             />
           </div>
-          <p className="mt-3 text-body-sm text-[var(--color-bone-soft)]/55 text-center font-italic">
+          <p className="mt-3 text-body-sm text-[var(--color-walnut-mid)]/65 text-center font-italic">
             A Sunday morning at Open Door Fellowship.
           </p>
         </div>
@@ -75,10 +75,10 @@ export function ServiceInfo() {
         <div className="mt-20 grid gap-10 md:grid-cols-3">
           {serviceInfo.whatToExpect.map((item) => (
             <div key={item.title} className="reveal">
-              <h3 className="font-display text-[1.375rem] text-[var(--color-lamplight)]">
+              <h3 className="font-display text-[1.375rem] text-[var(--color-lamplight-deep)]">
                 {item.title}
               </h3>
-              <p className="mt-3 text-body text-[var(--color-bone-soft)] text-pretty">
+              <p className="mt-3 text-body text-[var(--color-walnut-mid)] text-pretty">
                 {item.body}
               </p>
             </div>
@@ -86,15 +86,15 @@ export function ServiceInfo() {
         </div>
 
         {/* Address + phones */}
-        <div className="mt-20 grid gap-12 md:grid-cols-2 border-t border-[var(--color-bone-soft)]/15 pt-12">
+        <div className="mt-20 grid gap-12 md:grid-cols-2 border-t border-[var(--color-walnut)]/15 pt-12">
           <div className="reveal">
             <p className="eyebrow mb-3">Where to find us</p>
-            <address className="not-italic font-display text-[1.375rem] text-[var(--color-bone)] leading-tight">
+            <address className="not-italic font-display text-[1.375rem] text-[var(--color-walnut)] leading-tight">
               {contact.address.street}
               <br />
               {contact.address.city}, {contact.address.region} {contact.address.postal}
             </address>
-            <p className="mt-4 text-body-sm text-[var(--color-bone-soft)]/80">
+            <p className="mt-4 text-body-sm text-[var(--color-walnut-mid)]/85">
               {serviceInfo.parking}
             </p>
             <div className="mt-6">
@@ -117,9 +117,9 @@ export function ServiceInfo() {
                   <a
                     href={`tel:${p.tel}`}
                     className="
-                      font-display text-[1.375rem] text-[var(--color-bone)]
+                      font-display text-[1.375rem] text-[var(--color-walnut)]
                       transition-colors duration-[var(--dur-base)]
-                      hover:text-[var(--color-lamplight)]
+                      hover:text-[var(--color-lamplight-deep)]
                     "
                   >
                     {p.display}
