@@ -32,7 +32,7 @@ export default function NotFound() {
           </h1>
 
           <p className="mt-8 text-body-lg text-[var(--color-bone-soft)] max-w-readable mx-auto text-pretty">
-            This page isn’t here right now \u2014 either we moved it or it hasn’t been built yet. Either
+            This page isn’t here right now — either we moved it or it hasn’t been built yet. Either
             way, the invitation still stands. {service.dayTime}, {contact.address.city}, Tennessee.
           </p>
 

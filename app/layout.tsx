@@ -12,7 +12,9 @@ import './globals.css';
 
 const fraunces = Fraunces({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
+  // Variable mode: loads the variable font (supports any weight via CSS).
+  // Required because we ship `axes: ['opsz', 'SOFT']` and Next.js disallows
+  // combining a discrete weight array with axes.
   style: ['normal', 'italic'],
   display: 'swap',
   variable: '--font-fraunces',
