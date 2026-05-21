@@ -1,0 +1,196 @@
+@import '../styles/tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────────────────────
+   Base layer — typography, body, selection
+   ───────────────────────────────────────────────────────────── */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--surface-base);
+    color: var(--text-primary);
+  }
+
+  html {
+    /* Lenis handles scroll; native smooth is off by default */
+    scroll-behavior: auto;
+    /* Color the rubber-band area to match (iOS Safari) */
+    background-color: var(--surface-base);
+  }
+
+  body {
+    font-family: var(--font-instrument-sans), system-ui, -apple-system, sans-serif;
+    font-weight: var(--weight-regular);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Prevent horizontal scroll from 3D canvas overflows */
+    overflow-x: hidden;
+  }
+
+  /* Display type opts into Fraunces with optical sizing */
+  h1, h2, h3,
+  .font-display {
+    font-family: var(--font-fraunces), Georgia, 'Times New Roman', serif;
+    font-weight: var(--weight-regular);
+    font-variation-settings: 'opsz' 96, 'SOFT' 50;
+    letter-spacing: -0.02em;
+  }
+
+  /* Italic accents use Instrument Serif italic */
+  em,
+  .font-italic {
+    font-family: var(--font-instrument-serif), Georgia, serif;
+    font-style: italic;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background-color: var(--color-lamplight);
+    color: var(--color-walnut-deep);
+  }
+
+  /* Focus rings — visible but on-brand */
+  :focus-visible {
+    outline: 2px solid var(--color-lamplight);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Component utilities
+   ───────────────────────────────────────────────────────────── */
+
+@layer components {
+  /* Full-bleed grain overlay — sparingly used (Pillar 5: tactile detail) */
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    opacity: var(--grain-opacity);
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  /* Section container — generous macro whitespace per Pillar 4.
+     z-index 10 lifts every section above the fixed 3D canvas (z=2) and
+     the grain overlay (z=3). Hero opts out of veiling so the 3D shows
+     through fully; every section below Hero adds .section-veil. */
+  .section {
+    position: relative;
+    z-index: 10;
+    padding-block: var(--section-gap, 8rem);
+    padding-inline: var(--gutter, 1.5rem);
+  }
+
+  /* Section veil — subtle walnut wash behind content so type reads cleanly
+     over the 3D scene. The 3D still shows through at the edges (top/bottom
+     fade) which preserves the immersive feel. */
+  .section-veil::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      rgba(26, 20, 16, 0.0) 0%,
+      rgba(26, 20, 16, 0.88) 14%,
+      rgba(26, 20, 16, 0.94) 50%,
+      rgba(26, 20, 16, 0.88) 86%,
+      rgba(26, 20, 16, 0.0) 100%
+    );
+  }
+
+  /* Deeper veil for the conversion + footer beats (more committed coverage) */
+  .section-veil-strong::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      rgba(26, 20, 16, 0.85) 0%,
+      rgba(26, 20, 16, 0.96) 50%,
+      rgba(26, 20, 16, 1.00) 100%
+    );
+  }
+
+  /* Editorial inner container */
+  .container-editorial {
+    margin-inline: auto;
+    max-width: 64rem;
+  }
+
+  /* Wide container for stage-approach + footer */
+  .container-wide {
+    margin-inline: auto;
+    max-width: 88rem;
+  }
+
+  /* Eyebrow label — small spaced caps used above section heads */
+  .eyebrow {
+    font-family: var(--font-instrument-sans), sans-serif;
+    font-size: 0.75rem;
+    font-weight: var(--weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--text-accent);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Utility layer — small custom helpers
+   ───────────────────────────────────────────────────────────── */
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Lenis smooth-scroll required class hooks
+   ───────────────────────────────────────────────────────────── */
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}

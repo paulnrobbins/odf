@@ -1,0 +1,66 @@
+'use client';
+
+import { forwardRef } from 'react';
+import { cn } from '@/lib/utils';
+
+type ButtonVariant = 'primary' | 'secondary' | 'ghost';
+type ButtonSize = 'sm' | 'md' | 'lg';
+
+interface ButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  external?: boolean;
+  asChild?: boolean;
+}
+
+const base =
+  'relative inline-flex items-center justify-center gap-2 font-sans font-medium tracking-tight ' +
+  'transition-[color,background-color,border-color,opacity,transform] duration-[var(--dur-base)] ' +
+  'ease-[var(--ease-cinema)] focus-visible:outline-none focus-visible:ring-2 ' +
+  'focus-visible:ring-[var(--color-lamplight)] focus-visible:ring-offset-2 ' +
+  'focus-visible:ring-offset-[var(--color-walnut)] will-change-transform';
+
+const variants: Record<ButtonVariant, string> = {
+  primary:
+    'bg-[var(--color-lamplight)] text-[var(--color-walnut-deep)] ' +
+    'hover:bg-[var(--color-lamplight-warm)] hover:-translate-y-px ' +
+    'shadow-[0_0_0_0_rgba(217,163,104,0)] hover:shadow-[0_8px_32px_-12px_rgba(217,163,104,0.6)]',
+  secondary:
+    'border border-[var(--color-bone-soft)]/30 text-[var(--color-bone)] ' +
+    'hover:border-[var(--color-lamplight)]/60 hover:text-[var(--color-lamplight-warm)] ' +
+    'hover:-translate-y-px',
+  ghost:
+    'text-[var(--color-bone-soft)] hover:text-[var(--color-lamplight)] ' +
+    'underline-offset-4 hover:underline',
+};
+
+const sizes: Record<ButtonSize, string> = {
+  sm: 'h-9 px-4 text-[0.8125rem] rounded-full',
+  md: 'h-11 px-6 text-[0.9375rem] rounded-full',
+  lg: 'h-14 px-8 text-base rounded-full',
+};
+
+export const Button = forwardRef<HTMLAnchorElement, ButtonProps>(
+  (
+    { variant = 'primary', size = 'md', external, href, className, children, ...rest },
+    ref,
+  ) => {
+    const externalProps = external
+      ? { target: '_blank', rel: 'noopener noreferrer' }
+      : {};
+
+    return (
+      <a
+        ref={ref}
+        href={href}
+        className={cn(base, variants[variant], sizes[size], className)}
+        {...externalProps}
+        {...rest}
+      >
+        <span className="relative z-10">{children}</span>
+      </a>
+    );
+  },
+);
+
+Button.displayName = 'Button';
