@@ -6,18 +6,20 @@ import { TwoThings } from '@/components/sections/TwoThings';
 import { Ministries } from '@/components/sections/Ministries';
 import { ServiceInfo } from '@/components/sections/ServiceInfo';
 import { Leadership } from '@/components/sections/Leadership';
+import { Beliefs } from '@/components/sections/Beliefs';
 import { AtTheCross } from '@/components/sections/AtTheCross';
 import { Connection } from '@/components/sections/Connection';
 
 /**
- * Home page — Phase 4 assembly
- * ────────────────────────────
- * Rendering order matters: the photo fallback sits at the very back as the
- * SSR-renderable base layer. The 3D Canvas mounts on top of it client-side
- * (dynamic import, ssr:false). Both are fixed-position and behind all content.
+ * Home page assembly
+ * ──────────────────
+ * Section order matches the scroll score:
+ *   Hero → TwoThings → Ministries → ServiceInfo → Leadership → Beliefs →
+ *   AtTheCross → Connection.
  *
- * Section order matches the scroll score: Hero → TwoThings → Ministries →
- * ServiceInfo → Leadership (the Justin + Kahala beat) → AtTheCross → Connection.
+ * The fixed 3D background (UpperRoomFallback photo + BackgroundCanvas R3F)
+ * sits behind everything; the camera path through the 3D scene auto-scales
+ * to total scroll length, so adding sections doesn't break the cinematic.
  */
 export default function HomePage() {
   return (
@@ -33,6 +35,7 @@ export default function HomePage() {
         <Ministries />
         <ServiceInfo />
         <Leadership />
+        <Beliefs />
         <AtTheCross />
         <Connection />
       </main>

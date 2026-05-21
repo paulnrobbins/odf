@@ -143,20 +143,18 @@ export const twoThings = {
   headline: 'Two things we do.',
   items: [
     {
-      id: 'recovery',
-      number: '01',
-      title: 'Recovery Ministry',
-      body: 'Reaching those battling addiction, walking alongside them with compassion, accountability, and the healing power of Jesus.',
-      photo: photos.worship,
-      photoAlt: 'A gathering at Open Door Fellowship',
-    },
-    {
       id: 'overlooked',
-      number: '02',
       title: 'Welcoming the Overlooked',
       body: 'Creating a home for people groups who are often marginalized, misunderstood, or rejected elsewhere.',
       photo: photos.community,
       photoAlt: 'Community at Open Door Fellowship',
+    },
+    {
+      id: 'recovery',
+      title: 'Recovery Ministry',
+      body: 'Reaching those battling addiction, walking alongside them with compassion, accountability, and the healing power of Jesus.',
+      photo: photos.worship,
+      photoAlt: 'A gathering at Open Door Fellowship',
     },
   ],
 } as const;
@@ -194,6 +192,79 @@ export const ministries = {
       location: 'Pastor Joe Mullins',
       body: 'Carrying the gospel into the places people gather — over coffee, on the street, at the threshold of crisis.',
       href: ministrySites.cupOfJoe,
+    },
+  ],
+} as const;
+
+// ──────────────────────────────────────────────────────────
+// Statement of Faith — eight doctrinal beliefs
+// (Placed between Leadership and At the Cross in the scroll order:
+//  meet the pastors → see what they believe → arrive at the cross.)
+// ──────────────────────────────────────────────────────────
+
+export const statementOfFaith = {
+  eyebrow: 'What we believe',
+  headline: 'Statement of Faith.',
+  intro:
+    'These are the truths we hold in common \u2014 the foundation under everything else we do.',
+  items: [
+    {
+      id: 'triune-god',
+      title: 'Triune God',
+      body:
+        'We believe there is one living and true God, eternally existing in three persons: Father, Son, and Holy Spirit, equal in power and glory. This triune God created, sustains, and governs all things.',
+      scripture: 'Genesis 1:1 \u00b7 Matthew 28:19 \u00b7 2 Corinthians 13:14',
+    },
+    {
+      id: 'inspired-scripture',
+      title: 'Inspired Scripture',
+      body:
+        'We believe the Old and New Testaments are the fully inspired Word of God, without error in the original manuscripts. Scripture is the final authority for faith and practice.',
+      scripture: '2 Timothy 3:16\u201317 \u00b7 2 Peter 1:20\u201321',
+    },
+    {
+      id: 'god-the-father',
+      title: 'God the Father',
+      body:
+        'We believe God the Father is infinite, personal, and perfect in holiness, wisdom, power, and love. He mercifully involves Himself in human affairs, hears prayer, and saves those who come to Him through Jesus Christ.',
+      scripture: 'Psalm 103:8\u201314 \u00b7 John 6:37 \u00b7 James 1:17',
+    },
+    {
+      id: 'jesus-christ',
+      title: 'Jesus Christ',
+      body:
+        'We believe Jesus Christ is God\u2019s only begotten Son, conceived by the Holy Spirit and born of a virgin. He lived a sinless life, performed miracles, died as a substitute for our sins, rose bodily from the dead, ascended into heaven, intercedes for believers, and will visibly return.',
+      scripture:
+        'Isaiah 7:14 \u00b7 John 1:1\u201314 \u00b7 1 Corinthians 15:3\u20134 \u00b7 Acts 1:9\u201311',
+    },
+    {
+      id: 'holy-spirit',
+      title: 'Holy Spirit',
+      body:
+        'We believe the Holy Spirit convicts the world of sin, regenerates believers, sanctifies them, and empowers them for ministry. He indwells every believer and serves as Helper, Teacher, and Guide, distributing spiritual gifts.',
+      scripture: 'John 14:16\u201317 \u00b7 Acts 1:8 \u00b7 1 Corinthians 12:4\u201311',
+    },
+    {
+      id: 'spirit-baptism',
+      title: 'Spirit Baptism',
+      body:
+        'We believe in the baptism of the Holy Spirit, empowering believers for service, often subsequent to salvation. This experience is consistent with biblical teaching and practice.',
+      scripture: 'Matthew 3:11 \u00b7 Acts 2:1\u20134',
+    },
+    {
+      id: 'church-ordinances',
+      title: 'Church Ordinances',
+      body:
+        'We believe Jesus Christ established two ordinances for the Church: water baptism and the Lord\u2019s Supper. Both are open to all believers as acts of obedience and remembrance.',
+      scripture: 'Matthew 28:19 \u00b7 1 Corinthians 11:23\u201326',
+    },
+    {
+      id: 'last-things',
+      title: 'Last Things',
+      body:
+        'We believe in the personal and visible return of Jesus Christ, the resurrection of the dead, final judgment, eternal blessing of the righteous, and eternal separation of the wicked. We also affirm the New Jerusalem as revealed in Scripture.',
+      scripture:
+        'Revelation 21:2 \u00b7 Matthew 25:31\u201346 \u00b7 1 Thessalonians 4:16\u201317',
     },
   ],
 } as const;
@@ -307,6 +378,7 @@ export const content = {
   weLoveYou,
   twoThings,
   ministries,
+  statementOfFaith,
   leadership,
   serviceInfo,
   atTheCross,

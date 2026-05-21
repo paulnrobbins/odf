@@ -3,16 +3,13 @@
 /**
  * ServiceInfo — Scene 5 (The Stage Approaches)
  * ────────────────────────────────────────────
- * When + where + what to expect. Camera in the 3D scene reaches the front
- * of the room here; the stage detail (guitar, stool with mug, music stand
- * with Bible) resolves behind the content.
- *
- * Click-to-call phone numbers, Google Maps directions button, three short
- * "what to expect" cards (no dress code / recovery-friendly / come early or
- * late).
+ * When + where + what to expect, with a hero photo (Justin preaching) as the
+ * visual anchor for "this is what a Sunday actually looks like." The photo
+ * lands at the top of the section as a Pattern A billboard.
  */
 
-import { serviceInfo, contact } from '@/lib/content';
+import Image from 'next/image';
+import { serviceInfo, contact, photos } from '@/lib/content';
 import { Button } from '@/components/ui/Button';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
@@ -32,8 +29,50 @@ export function ServiceInfo() {
           {serviceInfo.headline}
         </h2>
 
+        {/* Hero shot — Justin preaching, the actual Sunday morning view */}
+        <div className="mt-14 reveal">
+          <div
+            className="relative w-full aspect-[16/9] overflow-hidden rounded-[3px]"
+            style={{
+              transform: 'perspective(1800px) rotateX(1.5deg)',
+              boxShadow:
+                '0 50px 100px -40px rgba(0,0,0,0.75), 0 0 0 1px rgba(217,163,104,0.12)',
+            }}
+          >
+            <Image
+              src={photos.hero}
+              alt="Sunday morning at Open Door Fellowship — Pastor Justin preaching to the congregation"
+              fill
+              sizes="(min-width: 1024px) 1024px, 100vw"
+              className="object-cover object-center"
+              style={{ filter: 'brightness(0.92) saturate(0.92) contrast(1.05)' }}
+            />
+            {/* Warm tint to unify with the palette */}
+            <div
+              aria-hidden
+              className="absolute inset-0 pointer-events-none mix-blend-overlay"
+              style={{
+                background:
+                  'linear-gradient(180deg, rgba(217,163,104,0.10) 0%, rgba(217,163,104,0.04) 100%)',
+              }}
+            />
+            {/* Bottom edge darken — anchors the floating plane visually */}
+            <div
+              aria-hidden
+              className="absolute inset-x-0 bottom-0 h-1/3 pointer-events-none"
+              style={{
+                background:
+                  'linear-gradient(180deg, transparent 0%, rgba(26,20,16,0.5) 100%)',
+              }}
+            />
+          </div>
+          <p className="mt-3 text-body-sm text-[var(--color-bone-soft)]/55 text-center font-italic">
+            A Sunday morning at Open Door Fellowship.
+          </p>
+        </div>
+
         {/* What to expect */}
-        <div className="mt-16 grid gap-10 md:grid-cols-3">
+        <div className="mt-20 grid gap-10 md:grid-cols-3">
           {serviceInfo.whatToExpect.map((item) => (
             <div key={item.title} className="reveal">
               <h3 className="font-display text-[1.375rem] text-[var(--color-lamplight)]">

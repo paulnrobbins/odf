@@ -43,10 +43,7 @@ export function TwoThings() {
               >
                 {/* Copy block */}
                 <div className={photoOnRight ? 'md:order-1' : 'md:order-2'}>
-                  <p className="font-display text-display-sm text-[var(--color-lamplight)]/65 reveal">
-                    {item.number}
-                  </p>
-                  <h3 className="font-display text-display-md text-[var(--color-bone)] mt-2 text-balance reveal">
+                  <h3 className="font-display text-display-md text-[var(--color-bone)] text-balance reveal">
                     {item.title}
                   </h3>
                   <p className="mt-6 text-body-lg text-[var(--color-bone-soft)] max-w-readable text-pretty reveal">

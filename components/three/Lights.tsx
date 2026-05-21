@@ -31,8 +31,8 @@ interface LightsProps {
   mobile?: boolean;
 }
 
-const CROSS_INTENSITY_BASE = 1.4;
-const CROSS_INTENSITY_PEAK = 3.8;
+const CROSS_INTENSITY_BASE = 2.2;
+const CROSS_INTENSITY_PEAK = 5.0;
 const SCENE_6_START = 0.75;
 const SCENE_6_END = 0.92;
 
@@ -58,8 +58,12 @@ export function Lights({ mobile = false }: LightsProps) {
 
   return (
     <>
-      {/* Very low ambient — warm undertone, barely visible */}
-      <ambientLight intensity={0.08} color="#3a2a1f" />
+      {/* Warm ambient — bumped up so chairs and cross actually read */}
+      <ambientLight intensity={0.28} color="#4a3525" />
+
+      {/* Hemisphere fill — sky warm, ground darker; gives general legibility
+          without flattening the directional lights' drama */}
+      <hemisphereLight args={['#d9a368', '#1a1410', 0.35]} />
 
       {/*
         ─ Window shaft (Scene 1's defining light) ─
@@ -71,7 +75,7 @@ export function Lights({ mobile = false }: LightsProps) {
         target-position={[0, 0.5, 2]}
         angle={0.65}
         penumbra={0.75}
-        intensity={6}
+        intensity={7}
         color="#e8b87a"
         castShadow={!mobile}
         shadow-mapSize-width={mobile ? 512 : 1024}
@@ -81,27 +85,35 @@ export function Lights({ mobile = false }: LightsProps) {
 
       {/*
         ─ Overhead string lights ─
-        Point lights down the length of the room, decaying so the stage end
-        stays moody. Skip the deepest one on mobile to save fillrate.
+        Brighter so the chair rows read clearly. Decay still pulls the stage
+        end deeper into shadow, preserving the mood at the far end.
       */}
-      <pointLight position={[0, 3.2, 1]}  intensity={0.55} color="#d9a368" distance={6} decay={2} />
-      <pointLight position={[0, 3.2, -2]} intensity={0.50} color="#d9a368" distance={6} decay={2} />
+      <pointLight position={[0, 3.2, 1]}  intensity={1.0} color="#d9a368" distance={7} decay={2} />
+      <pointLight position={[0, 3.2, -2]} intensity={0.9} color="#d9a368" distance={7} decay={2} />
       {!mobile && (
-        <pointLight position={[0, 3.2, -5]} intensity={0.42} color="#d9a368" distance={6} decay={2} />
+        <pointLight position={[0, 3.2, -5]} intensity={0.75} color="#d9a368" distance={7} decay={2} />
       )}
 
       {/*
         ─ Cross uplight ─
-        Soft warm glow on the cross. Intensity is scrubbed in useFrame above
-        from 1.4 → 3.8 as scroll progress reaches Scene 6 (At the Cross).
+        Bigger baseline so the cross is visible from any scroll position;
+        still scrubs up to 5.0 at Scene 6 for the "arrival" moment.
       */}
       <spotLight
         ref={crossSpotRef}
         position={[0, 3.6, -6.4]}
         target-position={[0, 1.6, -7.85]}
-        angle={0.42}
+        angle={0.45}
         penumbra={0.85}
         intensity={CROSS_INTENSITY_BASE}
+        color="#e8b87a"
+      />
+
+      {/* Stage rim light — small directional from above-front so the stage
+          objects (guitar, stool, mug, music stand) catch some edge light */}
+      <directionalLight
+        position={[1, 3, -5]}
+        intensity={0.4}
         color="#e8b87a"
       />
     </>

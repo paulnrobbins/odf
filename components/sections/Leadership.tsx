@@ -3,14 +3,9 @@
 /**
  * Leadership — Pastor Justin + Kahala Jennings
  * ────────────────────────────────────────────
- * A quiet beat between Scenes 5 (Stage Approaches) and 6 (At the Cross).
- * Pattern A Billboard: the family portrait sits as a tilted plane next to
- * the copy, with the 10% warm overlay + grain treatment that unifies all
- * photos with the palette.
- *
- * The pastor photo is portrait orientation (the family stands close together,
- * a small child reaching up) — the layout treats it as a vertical card on
- * desktop and stacks above the copy on mobile.
+ * Profile-card layout: portrait sits beside (or above, on mobile) the name
+ * and bio. Reads as "meet the pastors" — not as a separate art piece.
+ * The portrait is treated cleanly (no tilt, no overlay) so faces stay sharp.
  */
 
 import Image from 'next/image';
@@ -27,57 +22,55 @@ export function Leadership() {
       className="section section-veil"
       aria-label="Meet your pastors"
     >
-      <div className="container-editorial grid gap-12 lg:gap-20 lg:grid-cols-[1fr_auto] items-center">
-        {/* Copy column */}
-        <div>
-          <p className="eyebrow mb-6 reveal">{leadership.eyebrow}</p>
-          <h2 className="font-display text-display-lg text-balance text-[var(--color-bone)] reveal">
-            {leadership.headline}
-          </h2>
-          <p className="mt-8 text-body-lg text-[var(--color-bone-soft)] max-w-readable reveal">
-            {leadership.body}
-          </p>
-        </div>
+      <div className="container-editorial">
+        <p className="eyebrow mb-10 reveal">{leadership.eyebrow}</p>
 
-        {/* Photo column — Pattern A Billboard treatment */}
-        <div className="relative mx-auto w-full max-w-[420px] reveal">
-          {/* The tilted plane container — pseudo-3D via CSS */}
-          <div
-            className="relative aspect-[3/5] overflow-hidden rounded-[2px]"
-            style={{
-              transform: 'perspective(1400px) rotateY(-4deg) rotateX(1.5deg)',
-              boxShadow: '0 40px 80px -30px rgba(0, 0, 0, 0.7)',
-            }}
-          >
-            <Image
-              src={leadership.photo}
-              alt={leadership.photoAlt}
-              fill
-              sizes="(min-width: 1024px) 420px, 90vw"
-              className="object-cover"
-              style={{
-                filter: 'brightness(0.92) saturate(0.88) contrast(1.02)',
-              }}
-            />
-            {/* Warm amber overlay — 10% per the brief */}
+        {/* Profile-card grid: portrait left, name + bio right (stacks on mobile) */}
+        <div className="grid gap-10 md:gap-14 md:grid-cols-[280px_1fr] lg:grid-cols-[340px_1fr] items-start">
+
+          {/* Portrait */}
+          <div className="reveal mx-auto md:mx-0 w-full max-w-[340px]">
             <div
-              aria-hidden
-              className="absolute inset-0 pointer-events-none mix-blend-overlay"
+              className="relative aspect-[3/4] overflow-hidden rounded-[3px]"
               style={{
-                background:
-                  'linear-gradient(180deg, rgba(217,163,104,0.12) 0%, rgba(217,163,104,0.06) 60%, rgba(217,163,104,0.16) 100%)',
+                boxShadow:
+                  '0 30px 60px -25px rgba(0,0,0,0.7), 0 0 0 1px rgba(217,163,104,0.15)',
               }}
-            />
-            {/* Bottom vignette — pulls type readable if any overlays land near edge */}
-            <div
-              aria-hidden
-              className="absolute inset-x-0 bottom-0 h-1/3 pointer-events-none"
-              style={{
-                background:
-                  'linear-gradient(180deg, transparent 0%, rgba(26,20,16,0.55) 100%)',
-              }}
-            />
+            >
+              <Image
+                src={leadership.photo}
+                alt={leadership.photoAlt}
+                fill
+                sizes="(min-width: 1024px) 340px, (min-width: 768px) 280px, 90vw"
+                className="object-cover object-center"
+                style={{ filter: 'brightness(0.96) saturate(0.92)' }}
+                priority
+              />
+              {/* Whisper-soft warm tint to unify with palette */}
+              <div
+                aria-hidden
+                className="absolute inset-0 pointer-events-none mix-blend-overlay"
+                style={{
+                  background:
+                    'linear-gradient(180deg, rgba(217,163,104,0.06) 0%, rgba(217,163,104,0.10) 100%)',
+                }}
+              />
+            </div>
           </div>
+
+          {/* Name + bio */}
+          <div className="md:pt-2">
+            <h2 className="font-display text-display-md text-balance text-[var(--color-bone)] reveal">
+              {leadership.headline}
+            </h2>
+            <p className="mt-2 text-body-sm text-[var(--color-lamplight)]/85 reveal">
+              Lead Pastors · Open Door Fellowship
+            </p>
+            <p className="mt-6 text-body-lg text-[var(--color-bone-soft)] max-w-readable text-pretty reveal">
+              {leadership.body}
+            </p>
+          </div>
+
         </div>
       </div>
     </section>
