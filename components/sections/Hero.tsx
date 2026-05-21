@@ -60,21 +60,33 @@ export function Hero() {
         className="container-wide w-full pb-[14vh] relative"
         style={{ zIndex: 10 }}
       >
-        <p ref={eyebrowRef} className="eyebrow mb-6">
-          {hero.eyebrow}
-        </p>
-        <h1
-          ref={headlineRef}
-          className="font-display text-display-xl text-balance text-[var(--color-walnut)]"
+        {/* White translucent panel behind the hero copy. Pure white (not
+            cream) so it visibly stands out from the page's cream theme; 72%
+            opacity keeps the 3D scene partially visible through it. */}
+        <div
+          className="relative rounded-[2rem] px-6 py-10 sm:px-12 sm:py-14 lg:px-16 lg:py-16 backdrop-blur-xl"
+          style={{
+            background: 'rgba(255, 255, 255, 0.72)',
+            boxShadow:
+              '0 40px 80px -30px rgba(58, 40, 24, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.6) inset',
+          }}
         >
-          {hero.headline}
-        </h1>
-        <p
-          ref={subheadRef}
-          className="mt-6 text-body-lg text-[var(--color-walnut-mid)]"
-        >
-          {hero.subhead}
-        </p>
+          <p ref={eyebrowRef} className="eyebrow mb-6">
+            {hero.eyebrow}
+          </p>
+          <h1
+            ref={headlineRef}
+            className="font-display text-display-xl text-balance text-[var(--color-walnut)]"
+          >
+            {hero.headline}
+          </h1>
+          <p
+            ref={subheadRef}
+            className="mt-6 text-body-lg text-[var(--color-walnut-mid)]"
+          >
+            {hero.subhead}
+          </p>
+        </div>
       </div>
 
       {/* Scroll cue — sits at the bottom, very subtle */}
