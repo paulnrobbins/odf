@@ -178,6 +178,39 @@ Change the names, the body, or the photo. If you change the photo to a different
 
 ---
 
+## Recipe: tune the white panel behind the hero text
+
+The white card sitting behind "Come As You Are" is just one line of CSS. To change how transparent it is:
+
+1. Open `components/sections/Hero.tsx`
+2. Search for `rgba(255, 255, 255` (Cmd/Ctrl + F)
+3. Change the last number — that's the opacity
+
+```
+background: 'rgba(255, 255, 255, 0.33)',
+                                  ^^^^
+                                  this number
+```
+
+The opacity number is between `0` and `1`:
+
+| Value | What it looks like |
+|-------|--------------------|
+| `0` | Completely invisible (no panel at all) |
+| `0.25` | Very subtle wash — barely there |
+| `0.33` | Light frosted feel — current value |
+| `0.5` | Clearly visible but the 3D shows through |
+| `0.7` | Mostly solid white card |
+| `1` | Fully opaque white card (no transparency) |
+
+Save the file, commit, push — Vercel rebuilds in ~90 seconds.
+
+```bash
+git add components/sections/Hero.tsx
+git commit -m "Tune hero panel opacity"
+git push
+```
+
 ## Recipe: change the OG image (social share preview)
 
 Replace `public/og-image.png` with a new 1200×630 PNG. That's it. Twitter/Facebook may cache the old one for a few hours — use the [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) to force a re-scrape.

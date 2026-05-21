@@ -66,7 +66,7 @@ export function Hero() {
         <div
           className="relative rounded-[2rem] px-6 py-10 sm:px-12 sm:py-14 lg:px-16 lg:py-16 backdrop-blur-xl"
           style={{
-            background: 'rgba(255, 255, 255, 0.55)',
+            background: 'rgba(255, 255, 255, 0.33)',
             boxShadow:
               '0 40px 80px -30px rgba(58, 40, 24, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.6) inset',
           }}
